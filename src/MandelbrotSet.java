@@ -15,6 +15,7 @@ public class MandelbrotSet extends JFrame{
 
      public MandelbrotSet(){
 
+        super("Mandelbrot Set");
         setSize(600, 400);
         setLocationRelativeTo(null);
         setTitle("Mandelbrot Set");
@@ -22,14 +23,16 @@ public class MandelbrotSet extends JFrame{
 
         image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 
-        for(int pX = 0; pX < getWidth(); pX++){
+        double xTemp, x0,y0, x, y;
 
-            for(int pY = 0; pY < getHeight(); pY++){
+        for(int pY = 0; pY < getHeight(); pY++){
 
-                double xTemp;
-                double x0 = (3.5 / getWidth()) - 2.5;
-                double y0 = (3.5 / getHeight() - 2.5);
-                double x = 0, y = 0;
+            for(int pX = 0; pX < getWidth(); pX++){
+
+                x0 = (pX - getWidth() / 1.7) * 4.0/ getWidth();
+                y0 = (pY - getHeight() / 2.0) * 4.0/ getWidth();
+                x = 0;
+                y = 0;
 
                 int iteration = 0;
                 int maxIterations = 1000;
